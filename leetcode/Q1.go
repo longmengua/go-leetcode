@@ -8,11 +8,7 @@ func TwoSum(nums []int, target int) []int {
 	// in order to speed up costing time, we will redefind data structure as map tpye.
 	m := make(map[int]int)
 	for _, v := range nums {
-		if _, ok := m[v]; ok {
-			m[v] += 1
-		} else {
-			m[v] = 1
-		}
+		m[v] += 1
 	}
 	// now on, we have the map which can make the cost close to 1 when retrieving data.
 	answer := []int{}
