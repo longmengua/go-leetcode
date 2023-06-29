@@ -11,11 +11,22 @@ You are given two non-empty linked lists representing two non-negative integers.
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 */
 func TestQ2(t *testing.T) {
-	result := ListNodeToInt(AddTwoNumbers(
+	isEqual := reflect.DeepEqual(ListNodeToInt(AddTwoNumbers(
 		IntToListNode([]int{2, 4, 3}),
 		IntToListNode([]int{5, 6, 4}),
-	))
-	isEqual := reflect.DeepEqual(result, []int{7, 0, 8})
+	)), []int{7, 0, 8})
+	Assert(t, isEqual, true)
+
+	isEqual = reflect.DeepEqual(ListNodeToInt(AddTwoNumbers(
+		IntToListNode([]int{0}),
+		IntToListNode([]int{0}),
+	)), []int{0})
+	Assert(t, isEqual, true)
+
+	isEqual = reflect.DeepEqual(ListNodeToInt(AddTwoNumbers(
+		IntToListNode([]int{9, 9, 9, 9, 9, 9, 9}),
+		IntToListNode([]int{9, 9, 9, 9}),
+	)), []int{8, 9, 9, 9, 0, 0, 0, 1})
 	Assert(t, isEqual, true)
 }
 
@@ -29,16 +40,15 @@ func IntToListNode(nums []int) *ListNode {
 	for i, v := range nums {
 		if l == nil {
 			l = &ListNode{
-				Val:  v,
-				Next: &ListNode{},
+				Val: v,
 			}
 			toReturn = l
 		} else {
 			l = l.Next
 			l.Val = v
-			if i+1 < len(nums) {
-				l.Next = &ListNode{}
-			}
+		}
+		if i+1 < len(nums) {
+			l.Next = &ListNode{}
 		}
 	}
 
