@@ -11,11 +11,11 @@ You are given two non-empty linked lists representing two non-negative integers.
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.
 */
 func TestQ2(t *testing.T) {
-	answer := ListNodeToInt(AddTwoNumbers(
+	result := ListNodeToInt(AddTwoNumbers(
 		IntToListNode([]int{2, 4, 3}),
 		IntToListNode([]int{5, 6, 4}),
 	))
-	isEqual := reflect.DeepEqual(answer, []int{7, 0, 8})
+	isEqual := reflect.DeepEqual(result, []int{7, 0, 8})
 	Assert(t, isEqual, true)
 }
 
