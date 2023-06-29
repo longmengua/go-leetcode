@@ -8,7 +8,7 @@ type ListNode struct {
 /**/
 func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	var toReturn *ListNode
-	var ans *ListNode
+	var curr *ListNode
 	carry := 0
 
 	for l1 != nil || l2 != nil || carry > 0 {
@@ -19,12 +19,12 @@ func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		}
 		l1 = l1.Next
 		l2 = l2.Next
-		if ans == nil {
-			ans = newL
+		if curr == nil {
+			curr = newL
 			toReturn = newL
 		} else {
-			ans.Next = newL
-			ans = ans.Next
+			curr.Next = newL
+			curr = curr.Next
 		}
 	}
 
