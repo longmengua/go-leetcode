@@ -32,25 +32,25 @@ Only one valid answer exists.
 
 Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
 */
-func TestSlice(t *testing.T) {
+func TestQ1(t *testing.T) {
 	nums := []int{2, 7, 11, 15}
 	target := 9
 
-	answer := TwoSum(nums, target)
+	result := TwoSum(nums, target)
 
-	Assert(t, len(answer), 2)
+	Assert(t, len(result), 2)
 
 	nums = []int{3, 2, 4}
 	target = 6
 
-	answer = TwoSum(nums, target)
+	result = TwoSum(nums, target)
 
-	Assert(t, len(answer), 2)
+	Assert(t, len(result), 2)
 
 	nums = []int{3, 3}
 	target = 6
 
-	answer = TwoSum(nums, target)
+	result = TwoSum(nums, target)
 
-	Assert(t, len(answer), 2)
+	Assert(t, len(result), 2)
 }
