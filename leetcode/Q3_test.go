@@ -19,4 +19,24 @@ func TestQ3(t *testing.T) {
 	s = "pwwkew"
 	result = LengthOfLongestSubstring(s)
 	Assert(t, result, 3)
+
+	s = " "
+	result = LengthOfLongestSubstring(s)
+	Assert(t, result, 1)
+
+	s = ""
+	result = LengthOfLongestSubstring(s)
+	Assert(t, result, 0)
+
+	s = "au"
+	result = LengthOfLongestSubstring(s)
+	Assert(t, result, 2)
+
+	s = "dvdf"
+	result = LengthOfLongestSubstring(s)
+	Assert(t, result, 3)
+
+	s = "abba"
+	result = LengthOfLongestSubstring(s)
+	Assert(t, result, 2)
 }

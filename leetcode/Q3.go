@@ -3,24 +3,26 @@ package leetcode
 /*
 compare to longest length number when hit the duplicated digit everytime
 */
-func LengthOfLongestSubstring(str string) int {
+func LengthOfLongestSubstring(s string) int {
 	longest := 0
 	currLen := 0
+	head := 0
 	m := make(map[int32]int)
+
 	// rune type is int32, which means unicode.
-	for index, v := range str {
+	for index, v := range s {
 		if _, exist := m[v]; exist {
-			if longest < currLen {
-				longest = currLen
+			if m[v] > head {
+				head = m[v]
 			}
-			if index > len(str) {
-				break
-			}
-			currLen = 1
+			currLen = index - head
 		} else {
 			currLen++
 		}
 		m[v] = index
+		if currLen > longest {
+			longest = currLen
+		}
 	}
 	return longest
 }
